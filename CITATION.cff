@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite the appropriate version-specific Zenodo R2 or PSP record DOI once published."
+type: software
+title: "CROSS — Research Simulator for Two-Stream Maritime Traffic"
+authors:
+  - given-names: Aleksandr
+    family-names: Gulyk
+    orcid: "https://orcid.org/0009-0005-8564-4175"
+    affiliation: Independent Researcher
+    email: mr.aleks.gulyk@gmail.com
