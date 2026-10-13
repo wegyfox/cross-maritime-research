@@ -1,0 +1,19 @@
+{
+  "files": 396,
+  "pinned_unmodified_files": 390,
+  "python_syntax_compiled": 366,
+  "source_bytes_preserved": true,
+  "scan_hits_by_category": {},
+  "scan_hit_paths": [],
+  "archive_sha256": {
+    "input_psp_a130_sha256": "0788a52d2cf3677d0393852dff2f222872087056e19d551295fc374c70213b62",
+    "input_r2_a130_sha256": "d9a966cd58537619928283da47dea0534026fd875d9f5ce194e071621d8be735",
+    "unified_derived_sha256": "9e5cda76b900c2d62c1c0ab07b32cfc3dd9ff0b906bfd0470d993075513163f2",
+    "final_derived_sha256": "505c8013f459873d619f0c1fc554c23376f8c4f87464bc163fb38ba1d4eb8d47",
+    "psp_source_zip_sha256": "ebd18442c0dcc9194fb1c1fd733622cb057b6200c684af94e0ea241ad3bb18ce",
+    "d0_source_wheel_sha256": "4d7ad98584dfb574d85597709396ad7b46055202d6817a872b519809370c1876",
+    "files_from_psp_source": 74,
+    "python_files_from_d0_wheel": 316,
+    "canonical_scientific_core": "unaltered original source bytes; no new scientific calculations"
+  }
+}

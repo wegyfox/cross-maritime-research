@@ -1,0 +1,45 @@
+schema: cross-psp-robustness-wizard-v1
+baseline_source:
+  mode: fixed
+  scenario_path: examples/q5_scenario.yaml
+  plan_path: null
+  expected_physics_identity_sha256: 2fc48bd1f59c9668ac6418df1baeb67c8ec2f84df9ca2a48b039ddfba21f7712
+  expected_plan_identity_sha256: null
+campaign:
+  scientific_question: >-
+    How sensitive is the same-physics B6 physical service reference to independent alpha
+    and beta safety-radius perturbations of +/-25%, and does the physical-reference rate
+    remain at or above the qualified baseline value across that envelope?
+  campaign_intent: qualification_evidence
+  design: full_factorial_grid
+  master_seed: 9612
+  replications: 1
+  confidence_target: 0.95
+  estimated_seconds_per_work_unit: 1800
+  max_work_units: 9
+  parameters:
+    - parameter_id: stream.alpha.safety_radius_nm
+      unit: nautical_miles
+      baseline_value: 0.1
+      reference_value: 0.1
+      supported_bounds: {lower: null, upper: null}
+      variation: {mode: symmetric_percent, percent: 25, levels: 3}
+    - parameter_id: stream.beta.safety_radius_nm
+      unit: nautical_miles
+      baseline_value: 0.1
+      reference_value: 0.1
+      supported_bounds: {lower: null, upper: null}
+      variation: {mode: symmetric_percent, percent: 25, levels: 3}
+parameter_help:
+  stream.alpha.safety_radius_nm: >-
+    Alpha-stream circular collision-avoidance safety radius. This directly changes the
+    physical spacing constraint and therefore targets B6 reference sensitivity.
+  stream.beta.safety_radius_nm: >-
+    Beta-stream circular collision-avoidance safety radius. Independent variation tests
+    asymmetric safety-domain effects and two-stream interaction.
+aggregation:
+  schema: cross-psp-robustness-aggregation-v1
+  primary_metric_path: metrics.b6_reference_rate_per_hour
+  stable_absolute_delta: 0.0
+  sensitive_absolute_delta: 0.25
+  conclusion_rule: {operator: '>=', threshold: 23.666666666666664}

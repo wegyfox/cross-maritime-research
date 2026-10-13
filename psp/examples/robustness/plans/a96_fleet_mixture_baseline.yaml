@@ -1,0 +1,64 @@
+schema: cross-psp-fleet-mixture-v1
+master_seed: 9602
+streams:
+  - stream_id: alpha
+    classes:
+      - weight: 1
+        profile:
+          class_id: alpha-compact-stress
+          dimensions_m:
+            length_m: 105
+            beam_m: 18
+          speed:
+            cruise_speed_knots: 6.2
+            maximum_speed_knots: 10
+          maneuver_limits:
+            max_acceleration_knots_per_min: 2.2
+            max_deceleration_knots_per_min: 2.2
+            max_turn_rate_deg_per_min: 32
+          safety_domain:
+            type: four_quadrant_nm
+            ahead_nm: 0.09
+            astern_nm: 0.09
+            port_nm: 0.09
+            starboard_nm: 0.09
+      - weight: 1
+        profile:
+          class_id: alpha-large-stress
+          dimensions_m:
+            length_m: 135
+            beam_m: 22
+          speed:
+            cruise_speed_knots: 5.8
+            maximum_speed_knots: 10
+          maneuver_limits:
+            max_acceleration_knots_per_min: 1.8
+            max_deceleration_knots_per_min: 1.8
+            max_turn_rate_deg_per_min: 28
+          safety_domain:
+            type: four_quadrant_nm
+            ahead_nm: 0.11
+            astern_nm: 0.11
+            port_nm: 0.11
+            starboard_nm: 0.11
+  - stream_id: beta
+    classes:
+      - weight: 1
+        profile:
+          class_id: beta-qualified-like
+          dimensions_m:
+            length_m: 120
+            beam_m: 20
+          speed:
+            cruise_speed_knots: 6
+            maximum_speed_knots: 10
+          maneuver_limits:
+            max_acceleration_knots_per_min: 2
+            max_deceleration_knots_per_min: 2
+            max_turn_rate_deg_per_min: 30
+          safety_domain:
+            type: four_quadrant_nm
+            ahead_nm: 0.10
+            astern_nm: 0.10
+            port_nm: 0.10
+            starboard_nm: 0.10

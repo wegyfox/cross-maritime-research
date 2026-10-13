@@ -1,0 +1,20 @@
+# NEW derivative packaging metadata; NOT part of frozen D0 wheel.
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vessel-crossing-simulator"
+version = "1.1.0a36"
+description = "Research simulator for comparing vessel traffic-control policies at crossing fairways."
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26", "scipy>=1.11", "cloudpickle>=3.1,<4", "cryptography>=45,<47", "pyproj>=3.7,<4", "PyYAML>=6.0,<7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+vessel-crossing = "vessel_crossing.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

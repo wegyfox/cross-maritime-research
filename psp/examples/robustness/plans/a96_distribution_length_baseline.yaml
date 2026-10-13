@@ -1,0 +1,15 @@
+schema: cross-psp-physics-distribution-v1
+master_seed: 9601
+streams:
+  - stream_id: alpha
+    distribution:
+      parameter: length_m
+      unit: m
+      family: normal
+      parameters:
+        mean: 120
+        stddev: 6
+      bounds:
+        lower: 100
+        upper: 140
+      sampling_scope: per_vessel

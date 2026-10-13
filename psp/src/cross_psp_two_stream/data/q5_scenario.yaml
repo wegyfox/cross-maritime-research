@@ -1,0 +1,98 @@
+format: cross-diagnostic-scenario-v1
+schema_version: 1
+scenario_id: CROSS_PSP_Q5_TWO_STREAM_ZERO_DRIFT_V1
+title: CROSS PSP Q5 two-stream orthogonal integration scenario
+description: Frozen-domain product integration scenario for qualified B4, cumulative B4-to-B5, and separate A70 B6 reference.
+model:
+  adapters:
+    runtime: nextgen.environmental_network_fifo.v1
+  parameters:
+    semantics_profile: cross-psp-q5-zero-drift-fifo-v1
+    network:
+      nodes:
+        - node_id: AS
+          position_nm: [0.0, -1.5]
+        - node_id: AN
+          position_nm: [0.0, 1.5]
+        - node_id: BE
+          position_nm: [1.5, 0.0]
+        - node_id: BW
+          position_nm: [-1.5, 0.0]
+      edges:
+        - edge_id: ALPHA
+          from_node_id: AS
+          to_node_id: AN
+          waypoints_nm: [[0.0, -1.5], [0.0, 1.5]]
+        - edge_id: BETA
+          from_node_id: BE
+          to_node_id: BW
+          waypoints_nm: [[1.5, 0.0], [-1.5, 0.0]]
+    vessel_classes:
+      q5:
+        dimensions_m:
+          length_m: 120.0
+          beam_m: 20.0
+        maneuver_limits:
+          max_acceleration_knots_per_min: 2.0
+          max_deceleration_knots_per_min: 2.0
+          max_turn_rate_deg_per_min: 30.0
+        safety_domain:
+          type: circular_nm
+          radius_nm: 0.10
+        maximum_speed_knots: 10.0
+    streams:
+      - stream_id: alpha
+        origin_node_id: AS
+        destination_node_id: AN
+        route_policy: shortest_distance
+        rate_per_hour: 6.0
+        cruise_speed_knots: 6.0
+        end_action: remove
+        recovery_max_intercept_angle_deg: 35.0
+        vessel_class_id: q5
+      - stream_id: beta
+        origin_node_id: BE
+        destination_node_id: BW
+        route_policy: shortest_distance
+        rate_per_hour: 6.0
+        cruise_speed_knots: 6.0
+        end_action: remove
+        recovery_max_intercept_angle_deg: 35.0
+        vessel_class_id: q5
+    scenario:
+      seed: 359
+      traffic_horizon_min: 15.0
+      start_time: 0.0
+      end_time: 55.0
+      default_environmental_drift_nm_per_min: [0.0, 0.0]
+      stream_environmental_drift_nm_per_min: {}
+    label: cross-psp-q5-two-stream-v1
+capabilities:
+  represented_factors:
+    - global_slot_conflict
+    - queue_order_structure
+  canonical_factors: []
+  executable_interventions:
+    - global_slot_coordination
+    - type_order_staging
+  reference_models:
+    - physical_balanced_reference
+requested_interventions:
+  - dedicated_corridor_exclusion
+  - controlled_entry_metering
+  - speed_plant_harmonization
+  - global_slot_coordination
+  - type_order_staging
+  - physical_balanced_reference
+experiment:
+  paired: true
+  replications: 2
+  confidence_level: 0.95
+  seed_namespace: cross-psp-q5-v1
+  resume: true
+claim_scope:
+  field_calibrated: false
+  deployment_recommendation: false
+metadata:
+  profile: cross-two-stream-crossing-profile-v1
+  q5_candidate: 0.1.0a8

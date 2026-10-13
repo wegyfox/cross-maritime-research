@@ -1,0 +1,44 @@
+schema: cross-psp-robustness-wizard-v1
+baseline_source:
+  mode: fleet_mixture
+  scenario_path: examples/q5_scenario.yaml
+  plan_path: examples/robustness/plans/a103_final_fleet_realism_baseline.yaml
+  expected_physics_identity_sha256: 536dac8c2ed49bdeccdacfdd815b23a1c2c15f7d0765b8160b6e4b61e9fd0d6b
+  expected_plan_identity_sha256: d4e6b7bdeeb5e0e460f847dc5be8165739428dff4d390c567abcfd45ee28cf55
+campaign:
+  scientific_question: >-
+    In one compact final realism gate, does the B6 physical service reference remain
+    interpretable as the alpha stream transitions from conventional mixed sizes toward
+    a nearly standardized 145 m autonomous class while beta remains heterogeneous
+    conventional cross-traffic?
+  campaign_intent: exploratory
+  design: full_factorial_grid
+  master_seed: 10315
+  replications: 1
+  confidence_target: 0.95
+  estimated_seconds_per_work_unit: 1800
+  max_work_units: 3
+  parameters:
+    - parameter_id: fleet.alpha.class.alpha-autonomous-standard.weight
+      unit: normalized_weight_input
+      baseline_value: 2
+      reference_value: 2
+      supported_bounds: {lower: null, upper: null}
+      variation:
+        mode: asymmetric_percent
+        lower_percent: 90
+        upper_percent: 900
+        levels: 3
+parameter_help:
+  fleet.alpha.class.alpha-autonomous-standard.weight: >-
+    Raw weight of a representative standardized 145 m autonomous class against two
+    fixed conventional-like alpha classes of raw weight 1 each. The three tested raw
+    weights 0.2, 2, and 20 correspond to autonomous shares of about 9%, 50%, and 91%.
+    All class dimensions, speeds, maneuver limits, and safety domains are synthetic
+    representative coherent profiles, not field-calibrated vessel populations.
+aggregation:
+  schema: cross-psp-robustness-aggregation-v1
+  primary_metric_path: metrics.b6_reference_rate_per_hour
+  stable_absolute_delta: 0.0
+  sensitive_absolute_delta: 0.5
+  conclusion_rule: {operator: '>=', threshold: 0.0}

@@ -1,0 +1,37 @@
+schema: cross-psp-public-material-robustness-suite-v1
+status: PREFLIGHT_ONLY
+machine_calibration:
+  source: A94 Windows acceptance evidence
+  observed_work_unit_minutes_approx: [26, 32]
+  planning_seconds_per_work_unit: 1800
+claim_boundary:
+  automatic_qualification_promotion: false
+  field_calibrated: false
+  deployment_recommendation: false
+  global_optimum_claim: false
+campaigns:
+  - id: fixed-cruise-interaction
+    config: examples/robustness/a96_fixed_cruise_interaction.yaml
+    category: baseline_mechanism_robustness
+    priority: 2
+    expected_work_units: 9
+  - id: fixed-safety-domain-interaction
+    config: examples/robustness/a96_fixed_safety_domain_interaction.yaml
+    category: physical_reference_robustness
+    priority: 1
+    expected_work_units: 9
+  - id: fixed-maneuverability-interaction
+    config: examples/robustness/a96_fixed_maneuverability_interaction.yaml
+    category: baseline_mechanism_robustness
+    priority: 3
+    expected_work_units: 9
+  - id: distribution-length-variability
+    config: examples/robustness/a96_distribution_length_variability.yaml
+    category: sampled_physics_robustness
+    priority: 4
+    expected_work_units: 9
+  - id: fleet-mixture-composition
+    config: examples/robustness/a96_fleet_mixture_composition.yaml
+    category: sampled_physics_robustness
+    priority: 5
+    expected_work_units: 9

@@ -1,0 +1,37 @@
+schema: cross-psp-robustness-wizard-v1
+baseline_source:
+  mode: distributions
+  scenario_path: examples/q5_scenario.yaml
+  plan_path: examples/robustness/plans/a96_distribution_length_baseline.yaml
+  expected_physics_identity_sha256: d3256776c4dd5fbc4e359b6f412373962b9e066f826dab654841d8d8c6766237
+  expected_plan_identity_sha256: 5c71c226142af2292651b1d0507f8470bd6bf04cd069e4857fb771a73efdd733
+campaign:
+  scientific_question: >-
+    How sensitive is managed B5 service yield to alpha-stream vessel-length heterogeneity
+    when the normal-distribution mean remains 120 m and its standard deviation varies
+    from 3 to 9 m under fixed hard bounds [100,140] m?
+  campaign_intent: exploratory
+  design: full_factorial_grid
+  master_seed: 9614
+  replications: 3
+  confidence_target: 0.95
+  estimated_seconds_per_work_unit: 1800
+  max_work_units: 9
+  parameters:
+    - parameter_id: distribution.alpha.parameters.stddev
+      unit: m
+      baseline_value: 6
+      reference_value: 6
+      supported_bounds: {lower: null, upper: null}
+      variation: {mode: absolute_bounds, lower: 3, upper: 9, levels: 3}
+parameter_help:
+  distribution.alpha.parameters.stddev: >-
+    Spread of a synthetic bounded normal vessel-length distribution around the qualified
+    120 m scalar reference. Outer campaign replications vary the sampled-physics seed;
+    each work unit still contains Q5's paired internal traffic replications.
+aggregation:
+  schema: cross-psp-robustness-aggregation-v1
+  primary_metric_path: metrics.primary
+  stable_absolute_delta: 0.0
+  sensitive_absolute_delta: 0.5
+  conclusion_rule: {operator: '>=', threshold: 0.0}

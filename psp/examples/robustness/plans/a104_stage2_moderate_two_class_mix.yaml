@@ -1,0 +1,83 @@
+schema: cross-psp-fleet-mixture-v1
+master_seed: 10402
+streams:
+- stream_id: alpha
+  classes:
+  - weight: 1
+    profile:
+      class_id: alpha-small-conventional-like
+      dimensions_m:
+        length_m: 90
+        beam_m: 16
+      speed:
+        cruise_speed_knots: 6.5
+        maximum_speed_knots: 10
+      maneuver_limits:
+        max_acceleration_knots_per_min: 2.2
+        max_deceleration_knots_per_min: 2.2
+        max_turn_rate_deg_per_min: 35
+      safety_domain:
+        type: four_quadrant_nm
+        ahead_nm: 0.08
+        astern_nm: 0.08
+        port_nm: 0.08
+        starboard_nm: 0.08
+  - weight: 3
+    profile:
+      class_id: alpha-autonomous-standard
+      dimensions_m:
+        length_m: 145
+        beam_m: 24
+      speed:
+        cruise_speed_knots: 6
+        maximum_speed_knots: 10
+      maneuver_limits:
+        max_acceleration_knots_per_min: 1.8
+        max_deceleration_knots_per_min: 1.8
+        max_turn_rate_deg_per_min: 28
+      safety_domain:
+        type: four_quadrant_nm
+        ahead_nm: 0.11
+        astern_nm: 0.11
+        port_nm: 0.11
+        starboard_nm: 0.11
+- stream_id: beta
+  classes:
+  - weight: 1
+    profile:
+      class_id: beta-small-conventional-like
+      dimensions_m:
+        length_m: 90
+        beam_m: 16
+      speed:
+        cruise_speed_knots: 6.5
+        maximum_speed_knots: 10
+      maneuver_limits:
+        max_acceleration_knots_per_min: 2.2
+        max_deceleration_knots_per_min: 2.2
+        max_turn_rate_deg_per_min: 35
+      safety_domain:
+        type: four_quadrant_nm
+        ahead_nm: 0.08
+        astern_nm: 0.08
+        port_nm: 0.08
+        starboard_nm: 0.08
+  - weight: 3
+    profile:
+      class_id: beta-medium-conventional-like
+      dimensions_m:
+        length_m: 145
+        beam_m: 24
+      speed:
+        cruise_speed_knots: 6
+        maximum_speed_knots: 10
+      maneuver_limits:
+        max_acceleration_knots_per_min: 1.8
+        max_deceleration_knots_per_min: 1.8
+        max_turn_rate_deg_per_min: 28
+      safety_domain:
+        type: four_quadrant_nm
+        ahead_nm: 0.11
+        astern_nm: 0.11
+        port_nm: 0.11
+        starboard_nm: 0.11

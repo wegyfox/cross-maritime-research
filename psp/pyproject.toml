@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cross-psp-two-stream"
+version = "1.0.0"
+description = "CROSS two-stream scientific profile with publication reproduction companion, dynamic-reference custom analysis, and interactive wizard."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "vessel-crossing-simulator==1.1.0a36",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+cross-psp = "cross_psp_two_stream.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.setuptools.package-data]
+"cross_psp_two_stream.data" = ["*.yaml", "*.json"]

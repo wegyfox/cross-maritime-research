@@ -1,0 +1,45 @@
+schema: cross-psp-robustness-wizard-v1
+baseline_source:
+  mode: fixed
+  scenario_path: examples/q5_scenario.yaml
+  plan_path: null
+  expected_physics_identity_sha256: 2fc48bd1f59c9668ac6418df1baeb67c8ec2f84df9ca2a48b039ddfba21f7712
+  expected_plan_identity_sha256: null
+campaign:
+  scientific_question: >-
+    Does managed B5 service yield remain at or above the qualified baseline when the
+    alpha-stream braking and turning limits are perturbed jointly by +/-25%, and are
+    there nonlinear or interaction effects within that bounded maneuverability envelope?
+  campaign_intent: qualification_evidence
+  design: full_factorial_grid
+  master_seed: 9613
+  replications: 1
+  confidence_target: 0.95
+  estimated_seconds_per_work_unit: 1800
+  max_work_units: 9
+  parameters:
+    - parameter_id: stream.alpha.max_deceleration_knots_per_min
+      unit: knots_per_min
+      baseline_value: 2
+      reference_value: 2
+      supported_bounds: {lower: null, upper: null}
+      variation: {mode: symmetric_percent, percent: 25, levels: 3}
+    - parameter_id: stream.alpha.max_turn_rate_deg_per_min
+      unit: degrees_per_min
+      baseline_value: 30
+      reference_value: 30
+      supported_bounds: {lower: null, upper: null}
+      variation: {mode: symmetric_percent, percent: 25, levels: 3}
+parameter_help:
+  stream.alpha.max_deceleration_knots_per_min: >-
+    Alpha-stream maximum braking rate. The stress envelope is deliberately bounded and
+    does not assert field calibration.
+  stream.alpha.max_turn_rate_deg_per_min: >-
+    Alpha-stream maximum turn rate. Joint variation with braking tests interaction in
+    collision-avoidance maneuverability without changing the simulator mechanism.
+aggregation:
+  schema: cross-psp-robustness-aggregation-v1
+  primary_metric_path: metrics.primary
+  stable_absolute_delta: 0.0
+  sensitive_absolute_delta: 0.5
+  conclusion_rule: {operator: '>=', threshold: 2.1818181818181817}

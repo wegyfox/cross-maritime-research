@@ -1,0 +1,37 @@
+schema: cross-psp-robustness-wizard-v1
+baseline_source:
+  mode: fleet_mixture
+  scenario_path: examples/q5_scenario.yaml
+  plan_path: examples/robustness/plans/a96_fleet_mixture_baseline.yaml
+  expected_physics_identity_sha256: f5164e1a97bcf22ac8fab14fae72fd25c8e793c3d56bdc26c79eb0dee9f9cf03
+  expected_plan_identity_sha256: 4d75869cf415f386d2b945f3cbe393c74df4c09c4be2b424e10f427ec00db9ff
+campaign:
+  scientific_question: >-
+    How sensitive is managed B5 service yield to the alpha-stream composition of two
+    coherent synthetic stress classes when the compact-class raw weight varies from
+    0.5 to 2.0 against a fixed large-class weight of 1.0?
+  campaign_intent: exploratory
+  design: full_factorial_grid
+  master_seed: 9615
+  replications: 3
+  confidence_target: 0.95
+  estimated_seconds_per_work_unit: 1800
+  max_work_units: 9
+  parameters:
+    - parameter_id: fleet.alpha.class.alpha-compact-stress.weight
+      unit: normalized_weight_input
+      baseline_value: 1
+      reference_value: 1
+      supported_bounds: {lower: null, upper: null}
+      variation: {mode: absolute_bounds, lower: 0.5, upper: 2.0, levels: 3}
+parameter_help:
+  fleet.alpha.class.alpha-compact-stress.weight: >-
+    Raw mixture weight of the compact coherent alpha class versus a fixed large-class
+    weight of 1.0. Canonical normalization yields a compact share of 1/3, 1/2, or 2/3.
+    These are synthetic stress classes, not field-calibrated vessel populations.
+aggregation:
+  schema: cross-psp-robustness-aggregation-v1
+  primary_metric_path: metrics.primary
+  stable_absolute_delta: 0.0
+  sensitive_absolute_delta: 0.5
+  conclusion_rule: {operator: '>=', threshold: 0.0}

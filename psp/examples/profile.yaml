@@ -1,0 +1,50 @@
+schema: cross-two-stream-profile-contract-v4
+profile_id: cross-two-stream-crossing-profile-v1
+profile_version: 0.1.0a7
+base_framework_version: 1.1.0a36
+runtime_adapter_id: nextgen.environmental_network_fifo.v1
+route_model_id: straight-orthogonal-single-conflict-center-v1
+environment_model_id: canonical-uniform-drift-2d-v1
+planned_slot_prediction_scope_id: zero-drift-straight-nominal-v1
+crossing_angle_deg: 90.0
+streams:
+  - stream_id: alpha
+    source_to_center_distance_nm: 1.5
+    center_to_exit_distance_nm: 1.5
+  - stream_id: beta
+    source_to_center_distance_nm: 1.5
+    center_to_exit_distance_nm: 1.5
+slot_solver:
+  separation_grid_min: 0.005
+  max_search_min: 30.0
+  clearance_time_tolerance_min: 0.0025
+  clearance_margin_tolerance_nm: 0.000001
+  max_clearance_subdivisions: 24
+b5_fairness:
+  lookahead_depth: 3
+  max_bypass_per_demand: 1
+  max_extra_wait_min: 5.0
+b6_reference:
+  stream_shares:
+    - stream_id: alpha
+      share: 0.5
+    - stream_id: beta
+      share: 0.5
+  supply_templates:
+    - stream_id: alpha
+      cycle:
+        - profile_class_id: reference-class
+          through_water_heading_deg: 0.0
+          through_water_speed_nm_per_min: 0.10
+    - stream_id: beta
+      cycle:
+        - profile_class_id: reference-class
+          through_water_heading_deg: 270.0
+          through_water_speed_nm_per_min: 0.10
+  max_share_deficit_passages: 0.5
+  fairness_comparison_tolerance: 1.0e-12
+  balance_tolerance_fraction: 0.05
+  warmup_min: 60.0
+  measurement_duration_min: 180.0
+  drain_min: 60.0
+  saturated_demands_per_stream: 256

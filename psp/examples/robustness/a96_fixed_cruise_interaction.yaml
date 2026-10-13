@@ -1,0 +1,45 @@
+schema: cross-psp-robustness-wizard-v1
+baseline_source:
+  mode: fixed
+  scenario_path: examples/q5_scenario.yaml
+  plan_path: null
+  expected_physics_identity_sha256: 2fc48bd1f59c9668ac6418df1baeb67c8ec2f84df9ca2a48b039ddfba21f7712
+  expected_plan_identity_sha256: null
+campaign:
+  scientific_question: >-
+    Does managed B5 service yield remain at or above the qualified fixed-profile baseline
+    when alpha and beta cruise speeds are perturbed independently by +/-10%, and is there
+    a directional interaction between the two crossing streams?
+  campaign_intent: qualification_evidence
+  design: full_factorial_grid
+  master_seed: 9611
+  replications: 1
+  confidence_target: 0.95
+  estimated_seconds_per_work_unit: 1800
+  max_work_units: 9
+  parameters:
+    - parameter_id: stream.alpha.cruise_speed_knots
+      unit: knots
+      baseline_value: 6
+      reference_value: 6
+      supported_bounds: {lower: null, upper: null}
+      variation: {mode: symmetric_percent, percent: 10, levels: 3}
+    - parameter_id: stream.beta.cruise_speed_knots
+      unit: knots
+      baseline_value: 6
+      reference_value: 6
+      supported_bounds: {lower: null, upper: null}
+      variation: {mode: symmetric_percent, percent: 10, levels: 3}
+parameter_help:
+  stream.alpha.cruise_speed_knots: >-
+    Alpha-stream commanded cruise speed. The +/-10% envelope is a bounded model stress
+    range around the qualified profile, not a field-calibrated operating recommendation.
+  stream.beta.cruise_speed_knots: >-
+    Beta-stream commanded cruise speed. Independent variation exposes directional and
+    cross-stream interaction effects while preserving the same Q5 mechanism.
+aggregation:
+  schema: cross-psp-robustness-aggregation-v1
+  primary_metric_path: metrics.primary
+  stable_absolute_delta: 0.0
+  sensitive_absolute_delta: 0.5
+  conclusion_rule: {operator: '>=', threshold: 2.1818181818181817}

@@ -1,0 +1,45 @@
+schema: cross-psp-robustness-wizard-v1
+baseline_source:
+  mode: fixed
+  scenario_path: examples/q5_scenario.yaml
+  plan_path: null
+  expected_physics_identity_sha256: 2fc48bd1f59c9668ac6418df1baeb67c8ec2f84df9ca2a48b039ddfba21f7712
+  expected_plan_identity_sha256: null
+campaign:
+  scientific_question: >-
+    Acceptance-only bounded pipeline check: does the managed B5 service-yield conclusion
+    remain stable when alpha maximum-speed envelope is perturbed by ±2% around the
+    qualified fixed-physics profile? This smoke campaign is exploratory and is not by
+    itself public qualification evidence.
+  campaign_intent: exploratory
+  design: full_factorial_grid
+  master_seed: 9401
+  replications: 1
+  confidence_target: null
+  estimated_seconds_per_work_unit: 900
+  max_work_units: 3
+  parameters:
+    - parameter_id: stream.alpha.maximum_speed_knots
+      unit: knots
+      baseline_value: 10.0
+      reference_value: 10.0
+      supported_bounds:
+        lower: null
+        upper: null
+      variation:
+        mode: symmetric_percent
+        percent: 2
+        levels: 3
+parameter_help:
+  stream.alpha.maximum_speed_knots: >-
+    Acceptance-only alpha vessel maximum-speed envelope. Cruise speed remains 6 kn.
+    The ±2% range is intentionally narrow to validate the end-to-end robustness runtime;
+    it is not asserted as a scientifically qualified operating envelope.
+aggregation:
+  schema: cross-psp-robustness-aggregation-v1
+  primary_metric_path: metrics.primary
+  stable_absolute_delta: 0.0
+  sensitive_absolute_delta: 0.5
+  conclusion_rule:
+    operator: '>='
+    threshold: 0.0
