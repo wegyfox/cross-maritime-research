@@ -1,0 +1,7 @@
+# Windows launcher checkout must retain native CRLF, even though Git stores text with LF.
+*.cmd text eol=crlf
+# Cross-platform source and documentation use LF in the Git object database.
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf

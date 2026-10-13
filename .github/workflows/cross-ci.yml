@@ -1,0 +1,60 @@
+name: CROSS source integrity and focused tests
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/cross-ci.yml'
+      - '.gitattributes'
+      - 'psp/**'
+      - 'simulator/**'
+      - 'tools/verify_source_import.py'
+      - 'docs/SOURCE_IMPORT_SHA256.csv'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cross-ci.yml'
+      - '.gitattributes'
+      - 'psp/**'
+      - 'simulator/**'
+      - 'tools/verify_source_import.py'
+      - 'docs/SOURCE_IMPORT_SHA256.csv'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cross-fast-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-and-focused-tests:
+    name: Exact source + 30 focused tests (Python 3.13)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify 390 imported source files
+        run: python tools/verify_source_import.py
+      - name: Install source packages and pytest
+        run: python -m pip install -e ./simulator -e ./psp pytest
+      - name: Verify installed CLI surfaces
+        run: |
+          cross-psp --help
+          vessel-crossing --help
+      - name: Compile Python sources
+        run: python -m compileall -q psp/src simulator/src
+      - name: Run bounded focused tests
+        run: |
+          python -m pytest -q \
+            psp/tests/test_release_cli.py \
+            psp/tests/test_contract.py \
+            psp/tests/test_custom_physics_binding.py \
+            psp/tests/test_dynamic_physics.py
