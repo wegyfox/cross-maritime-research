@@ -1,22 +1,29 @@
 # Release status — 2026-10-13
 
-**Current state: PRIVATE / PRE-PUBLICATION.** This GitHub repository has documentation scaffolding, not yet a complete source import.
+**Current state: PRIVATE / PRE-PUBLICATION.** The pinned source trees and scoped CI are present in this GitHub repository; no public GitHub Release, Zenodo DOI or journal submission exists yet.
 
-## Verified previously, outside this repository
+## GitHub source / CI evidence
 
-- The frozen R2 reproduction archive and its scientific core have established historical integrity and reproduction evidence.
-- The derived LEAN qualified component passed a bounded Windows Python 3.13 clean-install/CLI gate (22 of 22 checks) on an earlier exact artifact.
-- The unchanged current PSP Unified launcher subsequently passed Windows menu startup, dual-component SHA verification, and display of trusted-checkpoint warnings.
-- Final prepared **A130 R2** and **A130 PSP** archive wrappers passed static SHA/CRC/manifest checks. Their internal scientific code and original wheels were not changed for packaging.
+- A131 imported **390 pinned source members**, identified by original-member SHA-256 in `docs/SOURCE_IMPORT_SHA256.csv`, from the PSP source ZIP and D0 frozen wheel. The tree contains source, tests, derived installation metadata and provenance, not full heavy result archives.
+- Git storage normalizes one Windows `START_CROSS.cmd` file from CRLF to LF; exact original 333 bytes are reconstructed/verified by a strictly scoped rule. See `SOURCE_IMPORT_NORMALIZATION.md`.
+- GitHub Actions run [38394402694](https://github.com/wegyfox/cross-maritime-research/actions/runs/38394402694) completed successfully on Python 3.13: source byte check, installation of both source projects, CLI help commands, compilation, **30/30 focused tests**.
+- This single bounded Linux CI job is **not** exhaustive scientific qualification or Windows GUI acceptance.
 
-These outcomes **do not** establish full GUI acceptance, comprehensive security/legal certification, new physical-configuration validation, or real-world maritime safety.
+## Independently verified release-archive evidence
 
-## Remaining before public opening
+- Frozen R2 scientific archive and research core retain their historical reproduction/integrity evidence.
+- The earlier derived LEAN qualified component passed Windows Python 3.13 clean-install/CLI smoke (22/22 checks).
+- The unchanged A127 PSP Unified launcher subsequently passed Windows startup, both component SHA checks and visible trusted-checkpoint warning.
+- The separate **A130 R2** and **A130 PSP** candidate ZIP wrappers passed SHA/CRC/manifests; their scientific core and wheel bytes were not modified.
 
-1. Import the exact reviewed source modules under canonical versioned paths, with code provenance and upstream notices.
-2. Run import/CI/test and privacy gates on the repository tree.
-3. Confirm the exact repository commit and exact two archival ZIPs with the owner.
-4. Publish separate Zenodo records and add **real** DOI links (none exists yet).
-5. Publish the GitHub release only by separate owner authorization.
+These results do **not** constitute AIS calibration, real-world navigation certification, full GUI acceptance, exhaustive security clearance or legal opinion.
 
-No scientific results or historic frozen release archives should be silently modified to match the packaging.
+## Outstanding before public release
+
+1. Final asset-level license/notice and distribution-data privacy review on the exact intended public bytes.
+2. Owner approval of the exact repository commit and each of the two A130 candidate ZIPs; any changed archive needs a fresh exact hash.
+3. Public visibility and release only by separate owner approval; do **not** enable GitHub → Zenodo automatic release for this first publication.
+4. Two manual Zenodo deposits and actual DOI URLs, followed by citation updates to code and article manuscript.
+5. Separate editorial review and journal submission approval.
+
+No frozen scientific archive or original results should be modified to match the packaging.

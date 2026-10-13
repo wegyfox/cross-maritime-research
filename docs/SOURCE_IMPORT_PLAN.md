@@ -1,11 +1,17 @@
-# Exact-source import plan (not yet executed)
+# A131 exact-source import — executed, with guarded follow-up
 
-The verified PSP LEAN archival candidate contains an explicit `source/cross_psp_two_stream-1.0.0-source.zip` (74 entries) and pinned D0 `vessel_crossing_simulator-1.1.0a36-py3-none-any.whl` (321 entries). These are the intended immutable inputs for a **separate, exact-byte source import**, not permission to regenerate or revise the frozen simulator.
+## Imported components (2026-10-13)
 
-Planned path mapping, subject to per-file audit:
+The verified PSP source ZIP contains 74 original source members, and the pinned D0 simulator wheel supplies 316 Python source members. The A131 import placed them under `psp/` and `simulator/`, respectively, with per-file original path, byte-size and SHA-256 in `SOURCE_IMPORT_SHA256.csv`.
 
-- `psp/`: PSP source tree, `pyproject.toml`, examples and matching tests.
-- `simulator/`: D0 source tree extracted from the pinned wheel, with an explicit provenance record distinguishing wheel contents from a development source tree.
-- `experiments/`: small reproducible experiment specifications and scripts; large archived scientific result ZIPs remain in the external, version-specific Zenodo releases.
+The D0 `simulator/pyproject.toml` was reconstructed separately for source installation from wheel metadata: it is **not** an original pinned D0 wheel member. No frozen model code or scientific data was regenerated.
 
-For each imported path record original archive member name, component SHA-256, exact extracted SHA-256, rights classification and any executable/checkpoint ingress. Run focused import tests, Python lint/format checks where supported, then repository CI. Do not add `.venv`, `__pycache__`, local outputs, raw Windows logs, credentials or large archives to Git. This file is a plan, not a claim that the source tree is already populated.
+The Windows batch file `psp/release_shell/START_CROSS.cmd` has one documented Git CRLF/LF normalization exception. See `SOURCE_IMPORT_NORMALIZATION.md`; source content is otherwise pinned and unmodified.
+
+## Tested
+
+A private GitHub Actions run installed both derived source projects on Python 3.13, checked CLI help, compiled source Python modules and passed 30 selected tests. This is a **focused source-integrity check** and is not the previously qualified full release acceptance campaign.
+
+## Still pending
+
+Carry out per-file rights review where needed; validate future intentional source changes separately from the frozen baseline; expand CI selectively if valuable, avoiding expensive automatic simulation runs. Publish heavy scientific result ZIPs separately (Zenodo after owner approval). Do not commit `.venv`, `__pycache__`, local output, raw Windows home-path logs, credentials or heavy replay artifacts.
