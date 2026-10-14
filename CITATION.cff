@@ -1,7 +1,11 @@
 cff-version: 1.2.0
-message: "Please cite the appropriate version-specific Zenodo R2 or PSP record DOI once published."
+message: "When using the CROSS PSP researcher software cite DOI 10.5281/zenodo.23363285; for the separate R2 scientific reproduction dataset cite DOI 10.5281/zenodo.23345696."
 type: software
-title: "CROSS — Research Simulator for Two-Stream Maritime Traffic"
+title: "CROSS PSP Unified LEAN: Two-Stream Maritime Traffic Research Simulator"
+version: "1.0.0"
+date-released: 2026-10-14
+doi: 10.5281/zenodo.23363285
+url: "https://zenodo.org/records/23363285"
 authors:
   - given-names: Aleksandr
     family-names: Gulyk

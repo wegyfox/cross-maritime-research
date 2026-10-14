@@ -1,29 +1,32 @@
-# Release status — 2026-10-13
+# Release status — 2026-10-14
 
-**Current state: PRIVATE / PRE-PUBLICATION.** The pinned source trees and scoped CI are present in this GitHub repository; no public GitHub Release, Zenodo DOI or journal submission exists yet.
+**Current state:** Two **public Zenodo v1.0.0 archival records**; the GitHub source repository remains **PRIVATE**, and the Ocean Engineering manuscript remains **unsubmitted**.
+
+## Published archival objects
+
+- **R2 scientific reproduction dataset:** [Zenodo version 1.0.0, DOI 10.5281/zenodo.23345696](https://doi.org/10.5281/zenodo.23345696); record https://zenodo.org/records/23345696; source outer ZIP published as `CROSS_R2_Reproduction_Release_v1.0.0.zip`, exact pre-rename SHA-256 `d9a966cd58537619928283da47dea0534026fd875d9f5ce194e071621d8be735`.
+- **PSP Unified LEAN research software:** [Zenodo version 1.0.0, DOI 10.5281/zenodo.23363285](https://doi.org/10.5281/zenodo.23363285); record https://zenodo.org/records/23363285; published outer ZIP `CROSS_PSP_Unified_LEAN_v1.0.0.zip`, exact pre-rename SHA-256 `0788a52d2cf3677d0393852dff2f222872087056e19d551295fc374c70213b62`.
+
+Zenodo metadata and status were reviewed from owner-provided screenshots on 2026-10-14; direct authenticated read-back via this assistant's public web access was unavailable. The outer ZIP filenames changed only, not archived bytes. **Version DOIs** should be used for reproducible citations; Zenodo also assigns separate concept DOIs for all versions.
 
 ## GitHub source / CI evidence
 
-- A131 imported **390 pinned source members**, identified by original-member SHA-256 in `docs/SOURCE_IMPORT_SHA256.csv`, from the PSP source ZIP and D0 frozen wheel. The tree contains source, tests, derived installation metadata and provenance, not full heavy result archives.
-- Git storage normalizes one Windows `START_CROSS.cmd` file from CRLF to LF; exact original 333 bytes are reconstructed/verified by a strictly scoped rule. See `SOURCE_IMPORT_NORMALIZATION.md`.
-- GitHub Actions run [38394402694](https://github.com/wegyfox/cross-maritime-research/actions/runs/38394402694) completed successfully on Python 3.13: source byte check, installation of both source projects, CLI help commands, compilation, **30/30 focused tests**.
-- This single bounded Linux CI job is **not** exhaustive scientific qualification or Windows GUI acceptance.
+- A131 imported **390 pinned source members** with checksums in `docs/SOURCE_IMPORT_SHA256.csv`, from frozen PSP source ZIP and D0 wheel. The Git working tree contains source, tests, derived install metadata and provenance, not the heavy scientific result archives.
+- One Windows `START_CROSS.cmd` path has a documented CRLF/LF Git-normalization exception; its original bytes are checked via `SOURCE_IMPORT_NORMALIZATION.md`.
+- [GitHub Actions run 38394402694](https://github.com/wegyfox/cross-maritime-research/actions/runs/38394402694) passed Python 3.13 source verification, install/CLI import, byte checks and **30/30** focused tests. This is not a full GUI or scientific replay gate.
 
-## Independently verified release-archive evidence
+## Independent release-archive evidence
 
-- Frozen R2 scientific archive and research core retain their historical reproduction/integrity evidence.
-- The earlier derived LEAN qualified component passed Windows Python 3.13 clean-install/CLI smoke (22/22 checks).
-- The unchanged A127 PSP Unified launcher subsequently passed Windows startup, both component SHA checks and visible trusted-checkpoint warning.
-- The separate **A130 R2** and **A130 PSP** candidate ZIP wrappers passed SHA/CRC/manifests; their scientific core and wheel bytes were not modified.
+- Frozen R2 reference-model results and reproduction archive retain their original integrity and external reproduction evidence.
+- Earlier derived LEAN qualified PSP component passed Windows Python 3.13 clean-install CLI checks (22/22), and the unmodified A127 launcher passed targeted Windows dual-archive SHA verification with the trusted-checkpoint warning visible.
+- Published A130 outer archives passed exact CRC, SHA-256 and manifest checks; renamed upload files preserve bytes.
 
-These results do **not** constitute AIS calibration, real-world navigation certification, full GUI acceptance, exhaustive security clearance or legal opinion.
+These results do **not** imply AIS calibration, operational waterway capacity, real-world navigational safety, full GUI acceptance, a complete penetration test or an external legal opinion. Embedded third-party assets retain their component licenses. Only locally created trusted checkpoints may be deserialized.
 
-## Outstanding before public release
+## Next separately controlled steps
 
-1. Final asset-level license/notice and distribution-data privacy review on the exact intended public bytes.
-2. Owner approval of the exact repository commit and each of the two A130 candidate ZIPs; any changed archive needs a fresh exact hash.
-3. Public visibility and release only by separate owner approval; do **not** enable GitHub → Zenodo automatic release for this first publication.
-4. Two manual Zenodo deposits and actual DOI URLs, followed by citation updates to code and article manuscript.
-5. Separate editorial review and journal submission approval.
+1. Confirm and link the **version-specific Zenodo DOIs** in the manuscript's Data and Code Availability and companion-software discussion. Manuscript editorial/PDF verification before journal submission is separate from publication of the underlying archives.
+2. Decide when to make this **GitHub repository public** (separate owner authorization); do not automatically trigger GitHub → Zenodo releases for the already-deposited version.
+3. Prepare Ocean Engineering submission files; submission itself requires explicit author approval.
 
-No frozen scientific archive or original results should be modified to match the packaging.
+Do not alter frozen scientific archive members or original results to match repository documentation.

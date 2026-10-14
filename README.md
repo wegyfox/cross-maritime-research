@@ -4,7 +4,7 @@
 
 Author: **Aleksandr Gulyk**, Independent Researcher · [ORCID 0009-0005-8564-4175](https://orcid.org/0009-0005-8564-4175)
 
-> **PRIVATE / PRE-PUBLICATION.** The pinned PSP and D0 source trees are now imported, and a bounded source-install/test CI gate has passed. This repository is not yet a public release; no DOI is registered.
+> **PRIVATE SOURCE REPOSITORY / PUBLIC ZENODO ARCHIVES.** The pinned PSP and D0 source trees are imported and a bounded source-install/test CI gate has passed. The separate R2 and PSP v1.0.0 research archives were publicly released on Zenodo on 2026-10-14. This GitHub repository has **not** been opened publicly and has no GitHub release.
 
 ## Research scope
 
@@ -15,7 +15,7 @@ CROSS models controlled synthetic crossings of mixed autonomous and human-operat
 - `psp/` — qualified-default two-stream research analysis source, wizard and tests. Modified physical parameters and heterogeneous fleets are **exploratory**, not automatically qualified.
 - `simulator/` — D0 model source extracted from the **pinned** `vessel-crossing-simulator==1.1.0a36` wheel. Its source-install metadata is derived, not the original development tree.
 - `experiments/` and `docs/` — small reproducibility pointers and scientific qualification/provenance documentation.
-- Separately packaged **PSP Unified** — a researcher launcher with a qualified-default mode and a distinct post-1.0 exploratory metered mode. Its Windows launcher and bundled data are in the independently reviewed distribution candidate, not a GitHub binary release.
+- Separately packaged **PSP Unified** — a researcher launcher with a qualified-default mode and a distinct post-1.0 exploratory metered mode. Its Windows launcher and bundled data are preserved in the [published PSP Unified v1.0.0 archive](https://doi.org/10.5281/zenodo.23363285), not in a GitHub binary release.
 
 ## Source installation (research development)
 
@@ -33,7 +33,12 @@ The CI also compiles the Python source trees. The [focused CI run](https://githu
 
 ## Source, data and citation
 
-The authoritative frozen R2 reproduction archive and PSP Unified distribution are separate candidates, with separate Zenodo records/DOIs **if approved and published**. No DOI is asserted yet. Large research archives should remain on Zenodo, not in Git history. See [release status](docs/RELEASE_STATUS.md), [import normalization](docs/SOURCE_IMPORT_NORMALIZATION.md) and [research scope](docs/RESEARCH_SCOPE.md).
+Two distinct Zenodo records were published on **14 October 2026**. Cite the **version-specific DOI** for the exact artifact used:
+
+- **R2 scientific reproduction archive (Dataset v1.0.0):** [doi:10.5281/zenodo.23345696](https://doi.org/10.5281/zenodo.23345696).
+- **PSP Unified LEAN researcher software (Software v1.0.0):** [doi:10.5281/zenodo.23363285](https://doi.org/10.5281/zenodo.23363285).
+
+The R2 archive contains the reproducibility research outputs and procedures; PSP is a separate researcher-facing companion, with qualified-default and exploratory modes kept distinct. Large archives are on Zenodo, not in Git history. This GitHub repo remains **private**, so it must not yet be cited as publicly accessible source code. See [release status](docs/RELEASE_STATUS.md), [import normalization](docs/SOURCE_IMPORT_NORMALIZATION.md) and [research scope](docs/RESEARCH_SCOPE.md).
 
 ## Licenses and safety
 
