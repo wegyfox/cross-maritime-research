@@ -1,6 +1,6 @@
 # Release status — 2026-10-14
 
-**Current state:** Two **public Zenodo v1.0.0 archival records** and a **public GitHub source repository** (visibility confirmed via GitHub API on 2026-10-14). The Ocean Engineering manuscript remains **unsubmitted**.
+**Current state:** Two **public Zenodo v1.0.0 archival records** and a **public GitHub source repository** (visibility confirmed via GitHub API on 2026-10-14). The Ocean Engineering manuscript was **submitted on 14 October 2026** (portal status: Submitted; not peer reviewed, accepted or published).
 
 ## Published archival objects
 
@@ -27,6 +27,6 @@ These results do **not** imply AIS calibration, operational waterway capacity, r
 
 1. The **version-specific Zenodo DOIs** are linked in the English manuscript's Data and Code Availability section and are reflected in repository citation metadata; preserve that linkage during editorial review.
 2. This repository is **public** by explicit owner decision; no GitHub Release has been created. Do not turn on automatic GitHub → Zenodo archiving for the already-deposited version, to avoid duplicate DOI records.
-3. Perform final editorial review of the Ocean Engineering submission files; manuscript submission itself requires separate explicit author approval.
+3. Owner completed the submission to Ocean Engineering on 14 October 2026, at 16:55 as shown in the portal. Full length article: *From Pair-Context Effects to Network Bottlenecks in Mixed Autonomous and Human-Driven Ship Traffic: A Reference-Envelope Simulation Study*. Wait for the actual manuscript tracking number and editorial correspondence; do not equate Submitted with peer review or acceptance.
 
 Do not alter frozen scientific archive members or original results to match repository documentation.
