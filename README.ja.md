@@ -4,7 +4,7 @@
 
 著者: Aleksandr Gulyk（Independent Researcher） · [ORCID](https://orcid.org/0009-0005-8564-4175)
 
-> **GitHub ソースリポジトリは現在も非公開です。** PSP と D0 の固定ソースを取り込み、限定的な CI テストに合格しました。一方、R2 研究再現アーカイブと PSP Unified v1.0.0 配布物は **2026年10月14日** に Zenodo で別々に公開されました。GitHub リリースは未公開です。
+> **GitHub ソースリポジトリと Zenodo アーカイブを公開しました。** 固定された PSP と D0 のソースを公開し、限定的な CI テストに合格しています。R2 研究再現アーカイブと PSP Unified v1.0.0 は **2026年10月14日** に Zenodo でそれぞれ公開されました。別途 GitHub Release は作成しておらず、論文も未投稿です。
 
 ## 研究の対象と制約
 
@@ -31,4 +31,4 @@ python tools/verify_source_import.py
 
 チェックポイントの再開には、**信頼できる自分のローカル実行で生成し、その後も管理してきたファイルだけ**を使用してください。Python の `pickle` / `cloudpickle` には任意のコード実行の危険があり、SHA-256 が一致していても作成元の信頼性は保証されません。[安全上の注意](SECURITY.md) を参照してください。
 
-Zenodo で公開済みの固定バージョンを引用する場合は、R2 再現データの [DOI: 10.5281/zenodo.23345696](https://doi.org/10.5281/zenodo.23345696)、または研究者向け PSP Unified LEAN ソフトウェアの [DOI: 10.5281/zenodo.23363285](https://doi.org/10.5281/zenodo.23363285) を使用してください。GitHub ソースの公開・論文投稿はまだ行っていません。[公開状況](docs/RELEASE_STATUS.md) を参照してください。技術文書の正本は英語版です。
+Zenodo で公開済みの固定バージョンを引用する場合は、R2 再現データの [DOI: 10.5281/zenodo.23345696](https://doi.org/10.5281/zenodo.23345696)、または研究者向け PSP Unified LEAN ソフトウェアの [DOI: 10.5281/zenodo.23363285](https://doi.org/10.5281/zenodo.23363285) を使用してください。GitHub のソースは公開済みですが、論文の投稿はまだ行っていません。再現可能な引用には Zenodo のバージョン固有 DOI を使用してください。[公開状況](docs/RELEASE_STATUS.md) を参照してください。技術文書の正本は英語版です。

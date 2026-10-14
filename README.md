@@ -4,7 +4,7 @@
 
 Author: **Aleksandr Gulyk**, Independent Researcher · [ORCID 0009-0005-8564-4175](https://orcid.org/0009-0005-8564-4175)
 
-> **PRIVATE SOURCE REPOSITORY / PUBLIC ZENODO ARCHIVES.** The pinned PSP and D0 source trees are imported and a bounded source-install/test CI gate has passed. The separate R2 and PSP v1.0.0 research archives were publicly released on Zenodo on 2026-10-14. This GitHub repository has **not** been opened publicly and has no GitHub release.
+> **PUBLIC SOURCE REPOSITORY AND ZENODO ARCHIVES.** The pinned PSP and D0 source trees are available here and passed a bounded source-install/test CI gate. Two independent R2 and PSP v1.0.0 research archives were published on Zenodo on 2026-10-14. No separate GitHub Release has been created, and no journal submission is asserted.
 
 ## Research scope
 
@@ -38,7 +38,7 @@ Two distinct Zenodo records were published on **14 October 2026**. Cite the **ve
 - **R2 scientific reproduction archive (Dataset v1.0.0):** [doi:10.5281/zenodo.23345696](https://doi.org/10.5281/zenodo.23345696).
 - **PSP Unified LEAN researcher software (Software v1.0.0):** [doi:10.5281/zenodo.23363285](https://doi.org/10.5281/zenodo.23363285).
 
-The R2 archive contains the reproducibility research outputs and procedures; PSP is a separate researcher-facing companion, with qualified-default and exploratory modes kept distinct. Large archives are on Zenodo, not in Git history. This GitHub repo remains **private**, so it must not yet be cited as publicly accessible source code. See [release status](docs/RELEASE_STATUS.md), [import normalization](docs/SOURCE_IMPORT_NORMALIZATION.md) and [research scope](docs/RESEARCH_SCOPE.md).
+The R2 archive contains the reproducibility research outputs and procedures; PSP is a separate researcher-facing companion, with qualified-default and exploratory modes kept distinct. Large archives are on Zenodo, not in Git history. The GitHub source repository is **public**, but for reproducible results cite the version-specific Zenodo dataset and/or software DOI above. The repository may evolve independently of those immutable v1.0.0 archives. See [release status](docs/RELEASE_STATUS.md), [import normalization](docs/SOURCE_IMPORT_NORMALIZATION.md) and [research scope](docs/RESEARCH_SCOPE.md).
 
 ## Licenses and safety
 

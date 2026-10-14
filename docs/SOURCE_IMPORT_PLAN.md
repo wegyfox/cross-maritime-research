@@ -10,8 +10,8 @@ The Windows batch file `psp/release_shell/START_CROSS.cmd` has one documented Gi
 
 ## Tested
 
-A private GitHub Actions run installed both derived source projects on Python 3.13, checked CLI help, compiled source Python modules and passed 30 selected tests. This is a **focused source-integrity check** and is not the previously qualified full release acceptance campaign.
+GitHub Actions [run 38394402694](https://github.com/wegyfox/cross-maritime-research/actions/runs/38394402694) installed both derived source projects on Python 3.13, checked CLI help, compiled source Python modules and passed 30 selected tests. This is a **focused source-integrity check** and is not the previously qualified full release acceptance campaign.
 
 ## Still pending
 
-Carry out per-file rights review where needed; validate future intentional source changes separately from the frozen baseline; expand CI selectively if valuable, avoiding expensive automatic simulation runs. Publish heavy scientific result ZIPs separately (Zenodo after owner approval). Do not commit `.venv`, `__pycache__`, local output, raw Windows home-path logs, credentials or heavy replay artifacts.
+Carry out per-file rights review where needed; validate future intentional source changes separately from the frozen baseline; expand CI selectively if valuable, avoiding expensive automatic simulation runs. The heavy R2 reproduction and PSP Unified v1.0.0 ZIPs are now separately published on Zenodo under their version-specific DOIs; do not duplicate these result archives in Git history. Do not commit `.venv`, `__pycache__`, local output, raw Windows home-path logs, credentials or heavy replay artifacts.

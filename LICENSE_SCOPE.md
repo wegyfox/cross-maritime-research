@@ -7,4 +7,4 @@ The full text of Apache License, Version 2.0 in `LICENSE` covers **original auth
 - **Third-party material:** existing MIT/BSD/dual-licensed runner dependencies and other upstream assets retain their applicable licenses and attributions; distribute legal/credit source files with any vendored copies.
 - **Manuscript and separately published article figures:** outside the scope of this repository license unless independently specified.
 
-The two Zenodo record candidates have their own file/component maps and notices; do not assume one umbrella license for nested mixed-rights archives. See `NOTICE.md`. No DOI or publication is claimed in this repository version.
+The two **published Zenodo v1.0.0 archives** have their own file/component maps and notices; do not assume one umbrella license for nested mixed-rights archives. R2 reproduction dataset: [10.5281/zenodo.23345696](https://doi.org/10.5281/zenodo.23345696). PSP Unified software: [10.5281/zenodo.23363285](https://doi.org/10.5281/zenodo.23363285). See `NOTICE.md`.

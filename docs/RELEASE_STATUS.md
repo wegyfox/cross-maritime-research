@@ -1,6 +1,6 @@
 # Release status — 2026-10-14
 
-**Current state:** Two **public Zenodo v1.0.0 archival records**; the GitHub source repository remains **PRIVATE**, and the Ocean Engineering manuscript remains **unsubmitted**.
+**Current state:** Two **public Zenodo v1.0.0 archival records** and a **public GitHub source repository** (visibility confirmed via GitHub API on 2026-10-14). The Ocean Engineering manuscript remains **unsubmitted**.
 
 ## Published archival objects
 
@@ -25,8 +25,8 @@ These results do **not** imply AIS calibration, operational waterway capacity, r
 
 ## Next separately controlled steps
 
-1. Confirm and link the **version-specific Zenodo DOIs** in the manuscript's Data and Code Availability and companion-software discussion. Manuscript editorial/PDF verification before journal submission is separate from publication of the underlying archives.
-2. Decide when to make this **GitHub repository public** (separate owner authorization); do not automatically trigger GitHub → Zenodo releases for the already-deposited version.
-3. Prepare Ocean Engineering submission files; submission itself requires explicit author approval.
+1. The **version-specific Zenodo DOIs** are linked in the English manuscript's Data and Code Availability section and are reflected in repository citation metadata; preserve that linkage during editorial review.
+2. This repository is **public** by explicit owner decision; no GitHub Release has been created. Do not turn on automatic GitHub → Zenodo archiving for the already-deposited version, to avoid duplicate DOI records.
+3. Perform final editorial review of the Ocean Engineering submission files; manuscript submission itself requires separate explicit author approval.
 
 Do not alter frozen scientific archive members or original results to match repository documentation.
